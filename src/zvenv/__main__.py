@@ -3,10 +3,10 @@
 This is meant to be a one command solution for creating venvs containing packages to reduce barrier of entry. 
 
 Usage examples:
-python3 -m zvenv install 
-python3 -m zvenv install ~/Projects/PythonProject
-python3 -m zvenv uninstall
-python3 -m zvenv uninstall ~/Projects/PythonProject
+python3 -m zvenv create 
+python3 -m zvenv create ~/Projects/PythonProject
+python3 -m zvenv remove
+python3 -m zvenv remove ~/Projects/PythonProject
 
 Once you have a venv installed, refer to https://docs.python.org/3/library/venv.html#how-venvs-work on how to activate a virtual environment.
 
