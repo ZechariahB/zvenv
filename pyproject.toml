@@ -1,0 +1,19 @@
+[project]
+name = "zvenv"
+version = "1.0.0"
+authors = [
+  { name="Zechariah Boyer" },
+]
+description = "This utility provides user interactable venv creation with automatic dependency installation."
+requires-python = ">=3.0"
+dependencies = []
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
