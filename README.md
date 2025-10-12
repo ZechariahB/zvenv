@@ -1,6 +1,5 @@
-# ZVENV
-
-## Usage
+# Zvenv
+This is a utility I made specificially to make setting up a venv easier. Venv creation is handled for you if you install zvenv.
 Run `python3 -m zvenv --help` for more information.
 
 **Be aware that you require venv.** On Linux, install it through your package manager if it is missing.
