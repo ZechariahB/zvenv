@@ -16,13 +16,8 @@ from shutil import rmtree
 from pathlib import Path
 from .ebpkgs import EnvBuilderPkgs
 
-def exit_message(text : str):
-    '''Gives basic text output on exit to be more informative.'''
-    print(text)
-    exit()
-
 if __name__ != '__main__':
-    exit_message('This script cannot be imported!')
+    exit('This script cannot be imported!')
 
 LINES = str(__doc__).splitlines(True)
 
@@ -50,7 +45,7 @@ def create():
     print('You will create a venv located at ' + str(pdir))
     res = input('Are you sure about this? (Y)es/No: ').lower()
     if res != '' and res not in ('y','yes'):
-        exit_message('Creation canceled.')
+        exit('Creation canceled.')
     EnvBuilderPkgs(
         clear = True, symlinks = False, upgrade = False, with_pip = True, upgrade_deps = False, system_site_packages = True,
         requirements = pdir / 'requirements.txt'
@@ -62,13 +57,13 @@ def update():
         print('You will update a venv located at ' + str(venv))
         res = input('Are you sure about this? (Y)es/No: ')
         if res != '' and res not in ('y','yes'):
-            exit_message('Update canceled.')
+            exit('Update canceled.')
         EnvBuilderPkgs(
             clear = False, symlinks = False, upgrade = True, with_pip = True, upgrade_deps = True, system_site_packages = True,
             requirements = pdir / 'requirements.txt'
         ).create(venv)
     else:
-        exit_message('venv does not exist!')
+        exit('venv does not exist!')
 
 def remove():
     '''Remove method'''
@@ -76,10 +71,10 @@ def remove():
         print('You will remove a venv located at ' + str(venv))
         res = input('Are you sure about this? (Y)es/No: ')
         if res != '' and res not in ('y','yes'):
-            exit_message('Removal canceled.')
+            exit('Removal canceled.')
         rmtree(str(venv), ignore_errors = False)
     else:
-        exit_message('venv does not exist!')
+        exit('venv does not exist!')
 
 match args.task:
     case 'create':
