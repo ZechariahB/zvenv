@@ -13,13 +13,10 @@ class EnvBuilderPkgs(EnvBuilder):
             if not requirements.is_file():
                 raise FileNotFoundError('requirements file does not exist!')
         else:
-            raise TypeError('requirements be either an instance of list or PurePath')
+            raise TypeError('requirements must be an instance of Path.')
 
-        self.requirements = requirements
+        self.requirements = str(requirements)
         super().__init__(*args, **kwargs)
 
     def post_setup(self, context):
-        run(
-            [context.env_exe, '-m', 'pip', 'install', '-r', str(self.requirements)],
-            check = True
-        )
+        run([context.env_exe, '-m', 'pip', 'install', '-r', self.requirements], check = True)
